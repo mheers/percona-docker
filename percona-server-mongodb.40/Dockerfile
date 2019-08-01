@@ -40,6 +40,8 @@ RUN yum update -y \
 		percona-server-mongodb-tools-${PERCONA_VERSION} \
 		shadow-utils \
 		curl \
+		/usr/bin/dig \
+		iputils \
 		&& yum clean all \
 		&& rm -rf /var/cache/yum /data/db  && mkdir -p /data/db \
 		&& chown -R 1001:0 /data/db
@@ -65,6 +67,7 @@ RUN curl -fSL https://github.com/percona/mongodb-orchestration-tools/releases/do
 
 VOLUME ["/data/db"]
 
+COPY .bashrc /root
 COPY ps-entry.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
