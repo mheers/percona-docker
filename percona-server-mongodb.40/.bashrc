@@ -12,4 +12,9 @@ echo ""
 echo "now you can run mongo-shell:"
 echo "$ mongo -u ${MONGODB_USER_ADMIN_USER} -p ${MONGODB_USER_ADMIN_PASSWORD}"
 echo ""
+else
+if [ `whoami` == 'root' ] ; then
+echo "for security run:"
+echo "# gosu mongodb:1001 bash"
+fi
 fi
