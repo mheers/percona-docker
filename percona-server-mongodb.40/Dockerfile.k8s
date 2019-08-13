@@ -23,7 +23,7 @@ RUN export GNUPGHOME="$(mktemp -d)" \
 
 # install exact version for repeatability
 ENV PERCONA_VERSION 4.0.10-5.el7
-ENV K8S_TOOLS_VERSION 0.4.2
+ENV K8S_TOOLS_VERSION 0.4.4
 
 RUN curl -L -o /tmp/jq.rpm https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/j/jq-1.5-1.el7.x86_64.rpm \
 	&& curl -L -o /tmp/oniguruma.rpm https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/o/oniguruma-5.9.5-3.el7.x86_64.rpm \
@@ -64,8 +64,8 @@ RUN curl -L -o /usr/bin/gosu https://github.com/tianon/gosu/releases/download/${
     && curl -o /licenses/LICENSE.gosu \
 		https://raw.githubusercontent.com/tianon/gosu/${GOSU_VERSION}/LICENSE
 
-RUN curl -fSL https://github.com/percona/mongodb-orchestration-tools/releases/download/${K8S_TOOLS_VERSION}/k8s-mongodb-initiator -o /usr/local/bin/k8s-mongodb-initiator \
-    && curl -fSL  https://github.com/percona/mongodb-orchestration-tools/releases/download/${K8S_TOOLS_VERSION}/mongodb-healthcheck -o /usr/local/bin/mongodb-healthcheck \
+RUN curl -fSL https://github.com/mheers/mongodb-orchestration-tools/releases/download/${K8S_TOOLS_VERSION}/k8s-mongodb-initiator -o /usr/local/bin/k8s-mongodb-initiator \
+    && curl -fSL  https://github.com/mheers/mongodb-orchestration-tools/releases/download/${K8S_TOOLS_VERSION}/mongodb-healthcheck -o /usr/local/bin/mongodb-healthcheck \
     && chmod 0755 /usr/local/bin/k8s-mongodb-initiator /usr/local/bin/mongodb-healthcheck
 
 VOLUME ["/data/db"]
