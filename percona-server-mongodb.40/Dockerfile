@@ -23,7 +23,7 @@ RUN export GNUPGHOME="$(mktemp -d)" \
 
 # install exact version for repeatability
 ENV PERCONA_VERSION 4.0.10-5.el7
-ENV K8S_TOOLS_VERSION 0.4.4
+ENV K8S_TOOLS_VERSION 0.4.6
 
 RUN curl -L -o /tmp/jq.rpm https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/j/jq-1.5-1.el7.x86_64.rpm \
 	&& curl -L -o /tmp/oniguruma.rpm https://download.fedoraproject.org/pub/epel/7/x86_64/Packages/o/oniguruma-5.9.5-3.el7.x86_64.rpm \
